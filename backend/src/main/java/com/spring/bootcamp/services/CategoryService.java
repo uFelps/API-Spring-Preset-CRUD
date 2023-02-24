@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spring.bootcamp.dto.CategoryDTO;
 import com.spring.bootcamp.entities.Category;
 import com.spring.bootcamp.repositories.CategoryRepository;
+import com.spring.bootcamp.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -23,6 +24,16 @@ public class CategoryService {
 		List<Category> list = repository.findAll();
 		
 		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
+	}
+	
+	
+	@Transactional(readOnly = true)
+	public CategoryDTO findById(Long id) {
+		
+		Category entity = repository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
+		
+		return new CategoryDTO(entity);
 	}
 
 }
