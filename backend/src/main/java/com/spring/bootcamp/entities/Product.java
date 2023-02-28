@@ -41,7 +41,7 @@ public class Product implements Serializable {
 			joinColumns = @JoinColumn(name = "product_id"),// referencia da própria entidade
 			inverseJoinColumns = @JoinColumn(name = "category_id")// referencia da outra entidade
 			)
-	Set<Category> categories = new HashSet<>();
+	private Set<Category> categories = new HashSet<>();
 
 	public Product() {
 
