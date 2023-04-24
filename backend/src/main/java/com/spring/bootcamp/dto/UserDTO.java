@@ -1,6 +1,9 @@
 package com.spring.bootcamp.dto;
 
 import com.spring.bootcamp.entities.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -13,8 +16,10 @@ public class UserDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private Long id;
+    @NotBlank(message = "Campo obrigatório")
     private String firstName;
     private String lastName;
+    @Email(message = "Favor entrar um email válido")
     private String email;
 
     private Set<RoleDTO> roles = new HashSet<>();
