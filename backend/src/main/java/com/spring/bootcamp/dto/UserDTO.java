@@ -1,6 +1,7 @@
 package com.spring.bootcamp.dto;
 
 import com.spring.bootcamp.entities.User;
+import com.spring.bootcamp.services.validation.UserUpdateValid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

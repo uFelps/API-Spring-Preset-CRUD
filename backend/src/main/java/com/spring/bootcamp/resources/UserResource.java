@@ -3,6 +3,7 @@ package com.spring.bootcamp.resources;
 import com.spring.bootcamp.dto.ProductDTO;
 import com.spring.bootcamp.dto.UserDTO;
 import com.spring.bootcamp.dto.UserInsertDTO;
+import com.spring.bootcamp.dto.UserUpdateDTO;
 import com.spring.bootcamp.entities.User;
 import com.spring.bootcamp.services.ProductService;
 import com.spring.bootcamp.services.UserService;
@@ -49,11 +50,11 @@ public class UserResource {
 	
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserDTO dto){
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){
 		
-		dto = service.update(id, dto);
+		UserDTO newDto = service.update(id, dto);
 		
-		return ResponseEntity.ok().body(dto);
+		return ResponseEntity.ok().body(newDto);
 	}
 	
 	@DeleteMapping(value = "/{id}")

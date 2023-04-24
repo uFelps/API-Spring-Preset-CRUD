@@ -1,9 +1,6 @@
 package com.spring.bootcamp.services;
 
-import com.spring.bootcamp.dto.CategoryDTO;
-import com.spring.bootcamp.dto.RoleDTO;
-import com.spring.bootcamp.dto.UserDTO;
-import com.spring.bootcamp.dto.UserInsertDTO;
+import com.spring.bootcamp.dto.*;
 import com.spring.bootcamp.entities.Category;
 import com.spring.bootcamp.entities.Role;
 import com.spring.bootcamp.entities.User;
@@ -63,7 +60,7 @@ public class UserService {
 
 
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 
 		try {
 			User entity = repository.getReferenceById(id);
