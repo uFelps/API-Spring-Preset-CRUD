@@ -1,7 +1,10 @@
 package com.spring.bootcamp.dto;
 
+import com.spring.bootcamp.services.validation.UserInsertValid;
+
 import java.io.Serial;
 
+@UserInsertValid
 public class UserInsertDTO extends UserDTO{
 
     @Serial
